@@ -98,14 +98,15 @@ docker compose up -d
 
 ## Rotas da aplicação ##
 
-| Rotas              | Métodos | Protocolo | Descrição                                      |
-|--------------------|---------|-----------|------------------------------------------------|
-| /polls             | POST    | HTTP      | Cria uma nova enquete.                         |
-| /polls/:pollId     | GET     | HTTP      | Busca uma enquete específica.                  |
-| /polls/:pollId     | PUT     | HTTP      | Edita uma enquete específica.                  |
-| /polls/:pollId     | DEL     | HTTP      | Apaga uma enquete específica.                  |
-| /polls/:pollId/vote| POST    | HTTP      | Vota em uma opção da enquete.                  |
-| /polls/:pollId/results | --   | WS        | Abre uma conexão WebSocket que recebe os resultados dos votos. |
+| Rotas                  | Métodos | Protocolo | Descrição                                                      |
+|------------------------|---------|-----------|----------------------------------------------------------------|
+| /polls                 | POST    | HTTP      | Cria uma nova enquete.                                         |
+| /polls                 | GET     | HTTP      | Carrega todas as enquetes                                      |
+| /polls/:pollId         | GET     | HTTP      | Busca uma enquete específica.                                  |
+| /polls/:pollId         | PUT     | HTTP      | Edita uma enquete específica.                                  |
+| /polls/:pollId         | DEL     | HTTP      | Apaga uma enquete específica.                                  |
+| /polls/:pollId/vote    | POST    | HTTP      | Vota em uma opção da enquete.                                  |
+| /polls/:pollId/results | --      | WS        | Abre uma conexão WebSocket que recebe os resultados dos votos. |
 
 ## Criando uma enquete ##
 
