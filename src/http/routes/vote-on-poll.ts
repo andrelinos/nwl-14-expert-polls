@@ -5,6 +5,7 @@ import z from 'zod'
 
 import { prisma } from '../../lib/prisma'
 import { redis } from '../../lib/redis'
+import { voting } from '../../utils/voting-pub-sub'
 
 export async function voteOnPoll(app: FastifyInstance) {
   app.post('/polls/:pollId/votes', async (req, replay) => {
@@ -41,7 +42,16 @@ export async function voteOnPoll(app: FastifyInstance) {
           },
         })
 
-        await redis.zincrby(pollId, -1, userPreviousVoteOnPoll.id)
+        const votes = await redis.zincrby(
+          pollId,
+          -1,
+          userPreviousVoteOnPoll.pollOptionId,
+        )
+
+        voting.publish(pollId, {
+          pollOptionId: userPreviousVoteOnPoll.pollOptionId,
+          votes: Number(votes),
+        })
       } else if (userPreviousVoteOnPoll) {
         return replay
           .code(400)
@@ -68,7 +78,12 @@ export async function voteOnPoll(app: FastifyInstance) {
       },
     })
 
-    await redis.zincrby(pollId, 1, pollOptionId)
+    const votes = await redis.zincrby(pollId, 1, pollOptionId)
+
+    voting.publish(pollId, {
+      pollOptionId,
+      votes: Number(votes),
+    })
 
     return replay.code(201).send()
   })
