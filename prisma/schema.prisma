@@ -14,14 +14,34 @@ model Poll {
   updatedAt DateTime @default(now())
 
   options PollOption[]
+  votes   Vote[]
 
   @@map("polls")
 }
 
 model PollOption {
-  id     String @id @default(uuid())
-  title  String
+  id    String @id @default(uuid())
+  title String
+
   pollId String
 
-  poll Poll @relation(fields: [pollId], references: [id])
+  poll  Poll   @relation(fields: [pollId], references: [id])
+  votes Vote[]
+
+  @@map("poll_options")
+}
+
+model Vote {
+  id        Int      @id @default(autoincrement())
+  sessionId String
+  createdAt DateTime @default(now())
+
+  pollId       String
+  pollOptionId String
+
+  pollOption PollOption @relation(fields: [pollOptionId], references: [id])
+  poll       Poll       @relation(fields: [pollId], references: [id])
+
+  @@unique([sessionId, pollId])
+  @@map("votes")
 }
