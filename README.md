@@ -5,7 +5,7 @@
 
 </div>
 
-<h1 align="center">Nlw 14 Polls</h1>
+<h1 align="center">NLW 14 Expert - Polls</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/andrelinos/nwl-14-expert-polls?color=56BEB8">
@@ -18,7 +18,7 @@
 
 </p>
 
-<hr> -->
+<hr>
 
 <p align="center">
   <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0;
