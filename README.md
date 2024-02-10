@@ -82,6 +82,17 @@ $ npm run dev
 # Roda disponível <http://localhost:3333>
 ```
 
+## Instalações e configurações do ambiente ##
+
+- [Instalando o Node e o NPM](https://efficient-sloth-d85.notion.site/Instalando-o-Node-e-o-NPM-d162e2582d5c48499bc6703526912456)
+- [Configurando a extensão do prisma no VSCode](https://efficient-sloth-d85.notion.site/Prisma-Configurando-extens-o-no-VSCode-256d8348033b4957955e0598eedd01eb?pvs=25)
+- [Instalando o Docker e Docker compose](https://efficient-sloth-d85.notion.site/Instalando-Docker-e-Docker-Compose-7953729d22554795b50033c4c19eae70?pvs=25)
+
+```bash
+# Comando para criar os containers
+docker compose up -d
+```
+
 ## Criando uma enquete ##
 
 ```json
@@ -119,7 +130,7 @@ $ npm run dev
 
 ## :memo: Licença ##
 
-Este projeto está sob a [Licença](LICENSE.md) file.
+Este projeto está sob a [Licença](LICENSE.md).
 
 Made with :heart: by <a href="https://github.com/andrelinos" target="_blank">Andrelino Silva</a>
 
