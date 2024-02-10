@@ -76,6 +76,9 @@ $ cd nwl-14-expert-polls
 # Instalando as dependências
 $ npm install
 
+# Executando a migration do prisma para criar as tabelas no banco
+$ npx prisma migrate dev
+
 # Executando a aplicação
 $ npm run dev
 
@@ -92,6 +95,17 @@ $ npm run dev
 # Comando para criar os containers
 docker compose up -d
 ```
+
+## Rotas da aplicação ##
+
+| Rotas              | Métodos | Protocolo | Descrição                                      |
+|--------------------|---------|-----------|------------------------------------------------|
+| /polls             | POST    | HTTP      | Cria uma nova enquete.                         |
+| /polls/:pollId     | GET     | HTTP      | Busca uma enquete específica.                  |
+| /polls/:pollId     | PUT     | HTTP      | Edita uma enquete específica.                  |
+| /polls/:pollId     | DEL     | HTTP      | Apaga uma enquete específica.                  |
+| /polls/:pollId/vote| POST    | HTTP      | Vota em uma opção da enquete.                  |
+| /polls/:pollId/results | --   | WS        | Abre uma conexão WebSocket que recebe os resultados dos votos. |
 
 ## Criando uma enquete ##
 
@@ -125,7 +139,7 @@ docker compose up -d
 ## Apagando uma enquete ##
 
 ```json
-// Rota DELETE: http://localhost:3333/polls/06a82301-2155-44d9-8f0d-ff37882049c1/votes
+// Rota DEL: http://localhost:3333/polls/06a82301-2155-44d9-8f0d-ff37882049c1/votes
 ```
 
 ## :memo: Licença ##
