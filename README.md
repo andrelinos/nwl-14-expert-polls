@@ -3,7 +3,6 @@
 
   &#xa0;
 
-  <!-- <a href="https://nlw14polls.netlify.app">Demo</a> -->
 </div>
 
 <h1 align="center">Nlw 14 Polls</h1>
@@ -22,66 +21,108 @@
 <hr> -->
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0;
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/andrelinos" target="_blank">Author</a>
+  <a href="#dart-sobre">Sobre</a> &#xa0; | &#xa0;
+  <a href="#sparkles-funcionalidades">Funcionalidades</a> &#xa0; | &#xa0;
+  <a href="#rocket-tecnologias">Tecnologias</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requisitos">Requisitos</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-iniciando">Iniciando</a> &#xa0; | &#xa0;
+  <a href="#memo-licença">Licença</a> &#xa0; | &#xa0;
+  <a href="https://github.com/andrelinos" target="_blank">Autor</a>
 </p>
 
 <br>
 
-## :dart: About ##
+## :dart: Sobre ##
 
-Describe your project
+Descrição do projeto
 
-## :sparkles: Features ##
+## :sparkles: Funcionalidades ##
 
 :heavy_check_mark: Criar novas enquetes;\
-:heavy_check_mark: Votar em enquetes;\
+:heavy_check_mark: Editar enquete;\
+:heavy_check_mark: Deletar enquete;\
+:heavy_check_mark: Votar em enquete;\
 :heavy_check_mark: Ler informações de uma enquete e ver quantidades de votos;
 :heavy_check_mark: Cada usuário só poderá voltar apenas um enquete;
 
-## :rocket: Technologies ##
+## :rocket: Tecnologias ##
 
-The following tools were used in this project:
+Abaixo segue uma lista das tecnologias utilizadas
 
-- [Expo](https://expo.io/)
 - [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
+- [FastAPI](https://fastapi.tiangolo.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Prisma](https://www.prisma.io/)
+- [@prisma/client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client)
+- [Zod](https://github.com/colinhacks/zod)
+- [Redis](https://redis.io/)
+- [ioredis](https://github.com/luin/ioredis)
+- [@fastify/cookie](https://www.npmjs.com/package/@fastify/cookie)
+- [@fastify/websocket](https://www.npmjs.com/package/@fastify/websocket)
 
-## :white_check_mark: Requirements ##
+## :white_check_mark: Requisitos ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Antes de iniciar :checkered_flag:, você precisa ter instalado [Git](https://git-scm.com) e [Node](https://nodejs.org/en/).
 
-## :checkered_flag: Starting ##
+## :checkered_flag: Iniciando ##
 
 ```bash
-# Clone this project
-$ git clone https://github.com/andrelinos/nwl-14-expert-polls
+# Clonando o projeto
+$ git clone https://github.com/seu-usuario/nwl-14-expert-polls.git
 
-# Access
+# Acessando
 $ cd nwl-14-expert-polls
 
-# Install dependencies
-$ yarn
+# Instalando as dependências
+$ npm install
 
-# Run the project
-$ yarn start
+# Executando a aplicação
+$ npm run dev
 
-# The server will initialize in the <http://localhost:3000>
+# Roda disponível <http://localhost:3333>
 ```
 
-## :memo: License ##
+## Criando uma enquete ##
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+```json
+// Rota POST: http://localhost:3333/polls
+{
+    "title": "Minha segunda enquete!",
+    "options": ["Express", "Fastify", "NestJS", "HapiJS"]
+}
+```
 
-Made with :heart: by <a href="https://github.com/andrelinos" target="_blank">{{YOUR_NAME}}</a>
+## Editando uma enquete ##
+
+```json
+// Rota PUT: http://localhost:3333/polls/06a82301-2155-44d9-8f0d-ff37882049c1
+{
+    "title": "Novo nome para a enquete",
+    "options": ["Express", "Fastify", "NestJS", "HapiJS", "Prisma"]
+}
+```
+
+## Votando numa enquete ##
+
+```json
+// Rota POST: http://localhost:3333/polls/06a82301-2155-44d9-8f0d-ff37882049c1/votes
+{
+    "pollOptionId": "f3ffc104-6035-4321-be3c-11bd4509095c"
+}
+```
+
+## Apagando uma enquete ##
+
+```json
+// Rota DELETE: http://localhost:3333/polls/06a82301-2155-44d9-8f0d-ff37882049c1/votes
+```
+
+## :memo: Licença ##
+
+Este projeto está sob a [Licença](LICENSE.md) file.
+
+Made with :heart: by <a href="https://github.com/andrelinos" target="_blank">Andrelino Silva</a>
 
 &#xa0;
 
-<a href="#top">Back to top</a>
+<a href="#top">Voltar ao topo</a>
